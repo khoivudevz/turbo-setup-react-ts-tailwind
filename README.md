@@ -58,14 +58,17 @@ bun build:dev # Development build
 ```
 src/
 ├── configs/        # Configuration files
-├── pages/         # Page components
-├── providers/     # React providers
-├── router/        # Routing configuration
-├── services/      # API and other services
-├── store/         # Zustand store
-├── styles/        # Global styles
-├── utils/         # Utility functions
-└── views/         # View components
+├── constants/      # Constants
+├── hooks/          # Custom hooks
+├── pages/          # Page components
+├── providers/      # React providers
+├── router/         # Routing configuration
+├── services/       # API and other services
+├── store/          # Zustand store
+├── styles/         # Global styles
+├── types/          # TypeScript types
+├── utils/          # Utility functions
+└── views/          # View components
 ```
 
 ## 🔧 Configuration
