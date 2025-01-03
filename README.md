@@ -1,50 +1,105 @@
-# React + TypeScript + Vite
+# Turbo Setup React + TypeScript + Tailwind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and efficient React starter template with TypeScript, Tailwind CSS, and various development tools pre-configured.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡️ [React 19](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
+- 🎨 [Tailwind CSS](https://tailwindcss.com/) for styling
+- 📦 [Vite](https://vitejs.dev/) for fast development and building
+- 🔍 [ESLint](https://eslint.org/) for code linting
+- 💅 [Prettier](https://prettier.io/) for code formatting
+- 🐶 [Husky](https://typicode.github.io/husky/) for Git hooks
+- 📋 [Commitlint](https://commitlint.js.org/) for conventional commits
+- 🏪 [Zustand](https://zustand-demo.pmnd.rs/) for state management
+- 🌐 [React Router](https://reactrouter.com/) for routing
+- 📅 [Day.js](https://day.js.org/) for date manipulation
+- 🔄 [Axios](https://axios-http.com/) for HTTP requests
 
-## Expanding the ESLint configuration
+## 🛠️ Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js (v18 or higher)
+- Bun (latest version)
 
-- Configure the top-level `parserOptions` property like this:
+## 📦 Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Clone the repository
+
+```
+git clone https://github.com/khoivudevz/turbo-setup-react-ts-tailwind
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+# Install dependencies
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+bun install
+```
+
+## 🚀 Development
+
+# Start development server
+
+```
+bun dev # Development mode
+bun dev:stg # Staging mode
+bun dev:prod # Production mode
+```
+
+# Start development server
+
+```
+bun build # Production build
+bun build:stg # Staging build
+bun build:dev # Development build
+```
+
+## 📁 Development
+
+```
+src/
+├── configs/        # Configuration files
+├── pages/         # Page components
+├── providers/     # React providers
+├── router/        # Routing configuration
+├── services/      # API and other services
+├── store/         # Zustand store
+├── styles/        # Global styles
+├── utils/         # Utility functions
+└── views/         # View components
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create `.env` files for different environments:
+
+```
+VITE_ENV=development
+VITE_API_URL=your_api_url
+```
+
+### TypeScript
+
+The project includes two TypeScript configurations:
+
+- `tsconfig.app.json` - Application configuration
+- `tsconfig.node.json` - Node.js configuration
+
+### ESLint & Prettier
+
+- ESLint is configured with TypeScript and React rules
+- Prettier is set up with custom formatting rules
+- Pre-commit hooks ensure code quality
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes using conventional commits
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
