@@ -1,8 +1,6 @@
 import {createBrowserRouter} from 'react-router-dom'
 import {APP_URL} from '@/configs/app-url.config'
-import {lazy} from 'react'
-
-const HomePageLazy = lazy(() => import('@/pages/HomePage/HomePage'))
+import {HomePageLazy} from './lazy-components'
 
 const router = createBrowserRouter([
 	{
