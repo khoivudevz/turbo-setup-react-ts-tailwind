@@ -57,18 +57,21 @@ bun build:dev # Development build
 
 ```
 src/
-├── configs/        # Configuration files
-├── constants/      # Constants
-├── hooks/          # Custom hooks
-├── pages/          # Page components
-├── providers/      # React providers
-├── router/         # Routing configuration
-├── services/       # API and other services
-├── store/          # Zustand store
-├── styles/         # Global styles
-├── types/          # TypeScript types
-├── utils/          # Utility functions
-└── views/          # View components
+├── assets/           # Static assets (images, fonts, icons)
+├── components/       # Reusable UI components
+├── configs/          # Configuration files (env, http, app urls)
+├── constants/        # Application constants and shared values
+├── hooks/            # Custom React hooks (useFetch, useMutation, useKeyPress)
+├── layouts/          # Layout components and templates
+├── pages/            # Page components
+├── providers/        # React context providers
+├── router/           # Routing configuration
+├── services/         # Browser services (cookies, localStorage)
+├── store/            # State management with Zustand
+├── styles/           # Global styles and Tailwind imports
+├── types/            # TypeScript type definitions
+├── utils/            # Utility functions
+└── views/            # View components
 ```
 
 ## 🔧 Configuration
@@ -94,6 +97,45 @@ The project includes two TypeScript configurations:
 - ESLint is configured with TypeScript and React rules
 - Prettier is set up with custom formatting rules
 - Pre-commit hooks ensure code quality
+
+## 🌍 Internationalization (i18n)
+
+This project uses [i18next](https://www.i18next.com/) with [react-i18next](https://react.i18next.com/) for internationalization support. The translations are stored in JSON files located in the `src/i18n/translations` directory.
+
+### Adding a New Language
+
+1. Create a new JSON file in the `src/i18n/translations` directory with the language code as the filename (e.g., `fr.json` for French).
+
+2. Add your translations in the new JSON file. For example:
+
+   ```json
+   {
+   	"translation": {
+   		"welcome": "Bienvenue à React, tailwindcss et plus"
+   	}
+   }
+   ```
+
+### Switching Languages
+
+The `SwitchLanguage` component allows users to switch between available languages. It uses the `useTranslation` hook from `react-i18next` to change the language dynamically.
+
+Example usage in a component:
+
+```typescript:src/views/HomeView/HomeView.tsx
+import {useTranslation} from 'react-i18next'
+import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
+
+const HomeView = () => {
+  const {t} = useTranslation()
+  return (
+    <div>
+      <p>{t('welcome')}</p>
+      <SwitchLanguage />
+    </div>
+  )
+}
+```
 
 ## 🤝 Contributing
 
