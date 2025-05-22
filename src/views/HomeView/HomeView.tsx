@@ -7,7 +7,7 @@ const features = [
 	{
 		icon: (
 			<svg
-				className='w-8 h-8 text-teal-400'
+				className='w-8 h-8 text-sky-400'
 				fill='none'
 				stroke='currentColor'
 				strokeWidth='2'
@@ -16,12 +16,87 @@ const features = [
 				<path
 					strokeLinecap='round'
 					strokeLinejoin='round'
-					d='M13 16h-1v-4h-1m1-4h.01M12 20.5A8.5 8.5 0 1 0 12 3.5a8.5 8.5 0 0 0 0 17Z'
+					d='M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 3.5 2.5 15.5 0 19m0-19c-2.5 3.5-2.5 15.5 0 19'
 				/>
 			</svg>
 		),
-		titleKey: 'home.features.typescript.title',
-		descKey: 'home.features.typescript.desc',
+		titleKey: 'home.features.react.title',
+		descKey: 'home.features.react.desc',
+	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-emerald-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<rect x='4' y='4' width='16' height='16' rx='4' />
+				<path d='M8 12h8' />
+			</svg>
+		),
+		titleKey: 'home.features.tailwind.title',
+		descKey: 'home.features.tailwind.desc',
+	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-yellow-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<path
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6'
+				/>
+			</svg>
+		),
+		titleKey: 'home.features.vite.title',
+		descKey: 'home.features.vite.desc',
+	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-blue-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<path
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					d='M9 17v-2a4 4 0 014-4h2a4 4 0 014 4v2'
+				/>
+				<circle cx='9' cy='7' r='4' />
+			</svg>
+		),
+		titleKey: 'home.features.eslint.title',
+		descKey: 'home.features.eslint.desc',
+	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-pink-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<path
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					d='M16 7a4 4 0 01-8 0'
+				/>
+				<rect x='4' y='3' width='16' height='18' rx='2' />
+			</svg>
+		),
+		titleKey: 'home.features.prettier.title',
+		descKey: 'home.features.prettier.desc',
 	},
 	{
 		icon: (
@@ -46,35 +121,88 @@ const features = [
 	{
 		icon: (
 			<svg
-				className='w-8 h-8 text-emerald-400'
+				className='w-8 h-8 text-orange-400'
 				fill='none'
 				stroke='currentColor'
 				strokeWidth='2'
 				viewBox='0 0 24 24'
 			>
-				<path strokeLinecap='round' strokeLinejoin='round' d='M5 13l4 4L19 7' />
+				<path
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					d='M17 16l4-4m0 0l-4-4m4 4H7'
+				/>
 			</svg>
 		),
-		titleKey: 'home.features.tailwind.title',
-		descKey: 'home.features.tailwind.desc',
+		titleKey: 'home.features.commitlint.title',
+		descKey: 'home.features.commitlint.desc',
 	},
 	{
 		icon: (
 			<svg
-				className='w-8 h-8 text-sky-400'
+				className='w-8 h-8 text-teal-400'
 				fill='none'
 				stroke='currentColor'
 				strokeWidth='2'
 				viewBox='0 0 24 24'
 			>
-				<circle cx='12' cy='12' r='9' />
-				<path d='M2.5 12h19' />
-				<path d='M12 2.5c2.5 3.5 2.5 15.5 0 19' />
-				<path d='M12 2.5c-2.5 3.5-2.5 15.5 0 19' />
+				<rect x='4' y='4' width='16' height='16' rx='4' />
+				<path d='M8 12h8' />
 			</svg>
 		),
-		titleKey: 'home.features.i18n.title',
-		descKey: 'home.features.i18n.desc',
+		titleKey: 'home.features.zustand.title',
+		descKey: 'home.features.zustand.desc',
+	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-indigo-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<path
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6'
+				/>
+			</svg>
+		),
+		titleKey: 'home.features.router.title',
+		descKey: 'home.features.router.desc',
+	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-green-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<circle cx='12' cy='12' r='10' />
+				<path d='M12 6v6l4 2' />
+			</svg>
+		),
+		titleKey: 'home.features.dayjs.title',
+		descKey: 'home.features.dayjs.desc',
+	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-blue-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<rect x='4' y='4' width='16' height='16' rx='4' />
+				<path d='M8 12h8' />
+			</svg>
+		),
+		titleKey: 'home.features.axios.title',
+		descKey: 'home.features.axios.desc',
 	},
 ]
 
@@ -137,17 +265,20 @@ const HomeView = () => {
 					</div>
 
 					{/* Home page */}
-					<a
-						href='https://turbo-setup.vercel.app/'
-						className='mt-10 inline-flex items-center gap-2 bg-gradient-to-r from-sky-700 to-indigo-900 text-white text-lg font-bold px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:from-sky-800 hover:to-indigo-950 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-700'
-						target='_blank'
-						rel='noopener noreferrer'
-					>
-						<svg className='w-6 h-6' fill='currentColor' viewBox='0 0 24 24'>
-							<path d='M12 2C6.477 2 2 6.484 2 12.021c0 4.428 2.865 8.184 6.839 9.504.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.53 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.221-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.254-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.748-1.025 2.748-1.025.546 1.378.202 2.396.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.847-2.337 4.695-4.566 4.944.359.309.678.919.678 1.852 0 1.336-.012 2.417-.012 2.747 0 .267.18.578.688.48C19.138 20.2 22 16.447 22 12.021 22 6.484 17.523 2 12 2Z' />
-						</svg>
-						{t('home.visitHomepage')}
-					</a>
+					<div className='flex justify-center items-center my-10'>
+						<div className='relative inline-flex  group'>
+							<div className='absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt'></div>
+							<a
+								href='https://turbo-setup.vercel.app/'
+								title='Get quote now'
+								className='relative inline-flex items-center justify-center px-4 py-2 text-base font-bold text-white transition-all duration-200 bg-gray-900/80 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900'
+								role='button'
+								target='_blank'
+							>
+								🚀 TURBO SETUP 🏠
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<DemoModal

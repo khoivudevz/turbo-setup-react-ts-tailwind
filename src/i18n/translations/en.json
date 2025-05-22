@@ -10,25 +10,49 @@
 			"githubCta": "Star on GitHub",
 			"visitHomepage": "Visit TURBO SETUP",
 			"features": {
-				"typescript": {
-					"title": "TypeScript Ready",
-					"desc": "Full TypeScript support for safety and productivity."
+				"react": {
+					"title": "React 19 + TypeScript",
+					"desc": "Modern React with full TypeScript support."
+				},
+				"tailwind": {
+					"title": "Tailwind CSS",
+					"desc": "Utility-first CSS for rapid UI development."
+				},
+				"vite": {
+					"title": "Vite",
+					"desc": "Next-generation frontend tooling for fast builds."
+				},
+				"eslint": {
+					"title": "ESLint",
+					"desc": "Code linting for consistent code quality."
+				},
+				"prettier": {
+					"title": "Prettier",
+					"desc": "Automated code formatting for style consistency."
 				},
 				"husky": {
 					"title": "Husky & lint-staged",
 					"desc": "Pre-commit hooks for linting and formatting your code."
 				},
-				"turbo": {
-					"title": "Turbo Fast",
-					"desc": "Optimized for speed with TurboRepo and Vite."
+				"commitlint": {
+					"title": "Commitlint",
+					"desc": "Enforces conventional commit messages."
 				},
-				"tailwind": {
-					"title": "Tailwind CSS",
-					"desc": "Beautiful, utility-first styling out of the box."
+				"zustand": {
+					"title": "Zustand",
+					"desc": "Simple and fast state management."
 				},
-				"i18n": {
-					"title": "i18n Support",
-					"desc": "Ready for multiple languages and locales."
+				"router": {
+					"title": "React Router",
+					"desc": "Declarative routing for React apps."
+				},
+				"dayjs": {
+					"title": "Day.js",
+					"desc": "Lightweight date manipulation library."
+				},
+				"axios": {
+					"title": "Axios",
+					"desc": "Promise-based HTTP client for the browser."
 				}
 			}
 		}

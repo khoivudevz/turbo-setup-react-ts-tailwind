@@ -9,21 +9,49 @@
 			"modalDemoName": "TURBO SETUP",
 			"visitHomepage": "TURBO SETUP 방문",
 			"features": {
-				"typescript": {
-					"title": "타입스크립트 지원",
-					"desc": "안전성과 생산성을 위한 완벽한 타입스크립트 지원."
-				},
-				"turbo": {
-					"title": "터보 빠름",
-					"desc": "TurboRepo와 Vite로 최적화된 속도."
+				"react": {
+					"title": "React 19 + 타입스크립트",
+					"desc": "최신 리액트와 완벽한 타입스크립트 지원."
 				},
 				"tailwind": {
 					"title": "Tailwind CSS",
-					"desc": "아름답고 실용적인 유틸리티 스타일을 바로 사용."
+					"desc": "빠른 UI 개발을 위한 유틸리티 CSS."
 				},
-				"i18n": {
-					"title": "i18n 지원",
-					"desc": "다국어와 로케일을 위한 준비 완료."
+				"vite": {
+					"title": "Vite",
+					"desc": "빠른 빌드를 위한 차세대 프론트엔드 툴."
+				},
+				"eslint": {
+					"title": "ESLint",
+					"desc": "일관된 코드 품질을 위한 린트."
+				},
+				"prettier": {
+					"title": "Prettier",
+					"desc": "코드 스타일 일관성을 위한 자동 포매팅."
+				},
+				"husky": {
+					"title": "Husky & lint-staged",
+					"desc": "코드 린트 및 포매팅을 위한 pre-commit 훅."
+				},
+				"commitlint": {
+					"title": "Commitlint",
+					"desc": "커밋 메시지 규칙을 강제합니다."
+				},
+				"zustand": {
+					"title": "Zustand",
+					"desc": "간단하고 빠른 상태 관리."
+				},
+				"router": {
+					"title": "React Router",
+					"desc": "리액트 앱을 위한 선언적 라우팅."
+				},
+				"dayjs": {
+					"title": "Day.js",
+					"desc": "가벼운 날짜 처리 라이브러리."
+				},
+				"axios": {
+					"title": "Axios",
+					"desc": "브라우저용 Promise 기반 HTTP 클라이언트."
 				}
 			}
 		}
