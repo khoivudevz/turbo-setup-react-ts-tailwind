@@ -1,5 +1,31 @@
 {
 	"translation": {
-		"welcome": "리액트, 테일윈드CSS 및 기타 기능에 오신 것을 환영합니다"
+		"welcome": "리액트, 테일윈드CSS 및 기타 기능에 오신 것을 환영합니다",
+		"home": {
+			"heroTitle": "터보 리액트 스타터",
+			"heroDesc": "i18n, TurboRepo 등과 함께하는 최신, 초고속 React + TypeScript + Tailwind CSS 스타터. 더 빠르게 아름다운 앱을 만드세요.",
+			"modalDemo": "모달 데모",
+			"modalDemoMessage": "시작할 준비가 되셨나요?",
+			"modalDemoName": "TURBO SETUP",
+			"visitHomepage": "TURBO SETUP 방문",
+			"features": {
+				"typescript": {
+					"title": "타입스크립트 지원",
+					"desc": "안전성과 생산성을 위한 완벽한 타입스크립트 지원."
+				},
+				"turbo": {
+					"title": "터보 빠름",
+					"desc": "TurboRepo와 Vite로 최적화된 속도."
+				},
+				"tailwind": {
+					"title": "Tailwind CSS",
+					"desc": "아름답고 실용적인 유틸리티 스타일을 바로 사용."
+				},
+				"i18n": {
+					"title": "i18n 지원",
+					"desc": "다국어와 로케일을 위한 준비 완료."
+				}
+			}
+		}
 	}
 }

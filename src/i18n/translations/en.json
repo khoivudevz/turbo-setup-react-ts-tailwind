@@ -1,5 +1,36 @@
 {
 	"translation": {
-		"welcome": "Welcome to React, tailwindcss and more"
+		"welcome": "Welcome to React, tailwindcss and more",
+		"home": {
+			"heroTitle": "Turbo React Starter",
+			"heroDesc": "A modern, blazing-fast React + TypeScript + Tailwind CSS starter with i18n, TurboRepo, and more. Build beautiful apps, faster.",
+			"modalDemo": "Modal Demo",
+			"modalDemoMessage": "Are you ready to get started?",
+			"modalDemoName": "TURBO SETUP",
+			"githubCta": "Star on GitHub",
+			"visitHomepage": "Visit TURBO SETUP",
+			"features": {
+				"typescript": {
+					"title": "TypeScript Ready",
+					"desc": "Full TypeScript support for safety and productivity."
+				},
+				"husky": {
+					"title": "Husky & lint-staged",
+					"desc": "Pre-commit hooks for linting and formatting your code."
+				},
+				"turbo": {
+					"title": "Turbo Fast",
+					"desc": "Optimized for speed with TurboRepo and Vite."
+				},
+				"tailwind": {
+					"title": "Tailwind CSS",
+					"desc": "Beautiful, utility-first styling out of the box."
+				},
+				"i18n": {
+					"title": "i18n Support",
+					"desc": "Ready for multiple languages and locales."
+				}
+			}
+		}
 	}
 }
