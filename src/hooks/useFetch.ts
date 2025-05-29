@@ -1,7 +1,8 @@
+import {AxiosResponse} from 'axios'
 import {useEffect, useState} from 'react'
 
 const useFetch = <T>(
-	fetchFunction: () => Promise<T> | null,
+	fetchFunction: () => Promise<AxiosResponse<T>> | null,
 	dependencies: ReadonlyArray<unknown> = [],
 	searchParams?: URLSearchParams
 ) => {
@@ -9,6 +10,7 @@ const useFetch = <T>(
 	const [loading, setLoading] = useState<boolean>(true)
 	const [error, setError] = useState<Error | null>(null)
 	const [refetch, setRefetch] = useState<boolean>(false)
+	const [status, setStatus] = useState<number | null>(null)
 
 	const refetchData = () => {
 		setRefetch(!refetch)
@@ -29,7 +31,8 @@ const useFetch = <T>(
 					setError(new Error('No response'))
 					return
 				}
-				setData(response as T)
+				setData(response.data as T)
+				setStatus(response.status)
 				setError(null)
 			} catch (error) {
 				setError(error as Error)
@@ -45,7 +48,7 @@ const useFetch = <T>(
 		fetchData()
 	}, [...dependencies, searchParams, refetch])
 
-	return {data, loading, error, refetchData}
+	return {data, loading, error, refetchData, status}
 }
 
 export default useFetch
