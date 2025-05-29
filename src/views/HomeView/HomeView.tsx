@@ -1,7 +1,7 @@
-import {useTranslation} from 'react-i18next'
 import DemoModal from '@/components/Modal/components/DemoModal'
 import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
 import useModal from '@/hooks/useModal'
+import {useTranslation} from 'react-i18next'
 
 const features = [
 	{
@@ -281,6 +281,7 @@ const HomeView = () => {
 					</div>
 				</div>
 			</div>
+
 			<DemoModal
 				isOpen={isOpen}
 				handleCloseModal={handleCloseModal}
