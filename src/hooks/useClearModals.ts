@@ -5,10 +5,12 @@ const useClearModals = (keys: ModalKey[]) => {
 	const {closeModal} = useModalStore()
 
 	useEffect(() => {
-		keys.forEach((key) => {
-			closeModal(key)
-		})
-	}, [keys])
+		return () => {
+			keys.forEach((key) => {
+				closeModal(key)
+			})
+		}
+	}, [])
 }
 
 export default useClearModals
