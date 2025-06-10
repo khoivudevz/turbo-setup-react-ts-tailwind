@@ -1,6 +1,8 @@
 import {MODAL_KEYS} from '@/constants/modals.constant'
 import useModalStore from '@/store/useModal.store'
 import Modal from '../Modal'
+import dumbServices from '@/services/dumb.service'
+import useFetch from '@/hooks/useFetch'
 
 type Props = {
 	isOpen: boolean
@@ -9,6 +11,7 @@ type Props = {
 
 const DemoModal = ({isOpen, payload}: Props) => {
 	const {closeModal} = useModalStore()
+	const {data, loading} = useFetch(() => dumbServices.getNews({}))
 	return (
 		<Modal
 			visible={isOpen}
@@ -19,6 +22,25 @@ const DemoModal = ({isOpen, payload}: Props) => {
 				<p className='text-lg text-black font-medium text-center'>
 					{payload?.message}
 				</p>
+				<div className='w-full mt-6 bg-white/10 border border-white/10 rounded-2xl p-5 shadow'>
+					<p className='text-white font-bold mb-2'>Test api list</p>
+					{loading ? (
+						<div className='text-gray-300'>Loading...</div>
+					) : data && data.length > 0 ? (
+						<ul className='list-disc list-inside text-gray-200 max-h-64 overflow-y-auto'>
+							{data.map((item: {ticker: string; name: string}, idx: number) => (
+								<li key={idx} className='mb-1'>
+									<span className='font-semibold text-sky-300'>
+										{item.ticker}
+									</span>
+									: {item.name}
+								</li>
+							))}
+						</ul>
+					) : (
+						<div className='text-gray-400'>No data found.</div>
+					)}
+				</div>
 				<div className='flex gap-3 mt-6 justify-center'>
 					<button
 						onClick={() =>
