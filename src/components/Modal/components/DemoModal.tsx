@@ -1,27 +1,26 @@
-import useFetch from '@/hooks/useFetch'
+import {MODAL_KEYS} from '@/constants/modals.constant'
+import useModalStore from '@/store/useModal.store'
 import Modal from '../Modal'
 import dumbServices from '@/services/dumb.service'
+import useFetch from '@/hooks/useFetch'
 
 type Props = {
 	isOpen: boolean
-	handleCloseModal: any
-	handleConfirm: any
 	payload: any
 }
 
-const DemoModal = ({
-	isOpen,
-	handleCloseModal,
-	handleConfirm,
-	payload,
-}: Props) => {
+const DemoModal = ({isOpen, payload}: Props) => {
+	const {closeModal} = useModalStore()
 	const {data, loading} = useFetch(() => dumbServices.getNews({}))
-
 	return (
-		<Modal visible={isOpen} onClose={handleCloseModal} title='Welcome!'>
-			<div className='p-2 bg-gradient-to-br from-slate-900 via-indigo-950 to-black rounded-2xl min-w-[500px]'>
+		<Modal
+			visible={isOpen}
+			onClose={() => closeModal(MODAL_KEYS.DEMO_MODAL)}
+			title='Welcome!'
+		>
+			<div className='p-2'>
 				<p className='text-lg text-black font-medium text-center'>
-					{payload?.message || 'This is the modal!'}
+					{payload?.message}
 				</p>
 				<div className='w-full mt-6 bg-white/10 border border-white/10 rounded-2xl p-5 shadow'>
 					<p className='text-white font-bold mb-2'>Test api list</p>
@@ -44,7 +43,11 @@ const DemoModal = ({
 				</div>
 				<div className='flex gap-3 mt-6 justify-center'>
 					<button
-						onClick={() => handleCloseModal()}
+						onClick={() =>
+							closeModal(MODAL_KEYS.DEMO_MODAL, () => {
+								alert('Close callback')
+							})
+						}
 						className='bg-gray-700 text-gray-200 px-5 py-2 rounded-full font-semibold shadow hover:bg-gray-800 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500'
 					>
 						Cancel
@@ -52,9 +55,7 @@ const DemoModal = ({
 
 					<button
 						onClick={() => {
-							handleConfirm(() => {
-								alert(payload?.data?.name)
-							})
+							alert(payload?.data?.name)
 						}}
 						className='bg-gradient-to-r from-emerald-500 to-sky-600 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:from-emerald-600 hover:to-sky-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-emerald-400'
 					>
