@@ -8,7 +8,7 @@ type Props = {
 	onClose: () => void
 	children: React.ReactNode
 	title: string
-	wrapClassName?: string
+	className?: string
 	animation?: string
 	maskAnimation?: string
 	forceRender?: boolean
@@ -20,7 +20,7 @@ const Modal = ({
 	visible,
 	onClose,
 	children,
-	wrapClassName,
+	className,
 	animation,
 	maskAnimation,
 	forceRender,
@@ -35,7 +35,7 @@ const Modal = ({
 			title={title}
 			forceRender={forceRender}
 			focusTriggerAfterClose={focusTriggerAfterClose}
-			wrapClassName={cn('bg-black/50', wrapClassName)}
+			className={cn(className)}
 			animation={animation}
 			maskAnimation={maskAnimation}
 			closeIcon={closeIcon}

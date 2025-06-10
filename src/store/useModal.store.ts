@@ -11,7 +11,7 @@ export type ModalState = {
 export type ModalsStore = {
 	modals: Record<ModalKey, ModalState>
 	openModal: (key: ModalKey, payload?: unknown) => void
-	closeModal: (key: ModalKey) => void
+	closeModal: (key: ModalKey, callback?: () => void) => void
 	toggleModal: (key: ModalKey, payload?: unknown) => void
 }
 
@@ -26,13 +26,15 @@ const useModalStore = create<ModalsStore>()(
 						[key]: {isOpen: true, payload},
 					},
 				})),
-			closeModal: (key) =>
+			closeModal: (key, callback) => {
 				set((state) => ({
 					modals: {
 						...state.modals,
 						[key]: {isOpen: false},
 					},
-				})),
+				}))
+				callback?.()
+			},
 			toggleModal: (key, payload) => {
 				const current = get().modals[key]?.isOpen
 				set((state) => ({

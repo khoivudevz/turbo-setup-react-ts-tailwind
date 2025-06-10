@@ -1,7 +1,8 @@
 import {useTranslation} from 'react-i18next'
-import DemoModal from '@/components/Modal/components/DemoModal'
 import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
-import useModal from '@/hooks/useModal'
+import useModalStore from '@/store/useModal.store'
+import {MODAL_KEYS} from '@/constants/modals.constant'
+import useClearModals from '@/hooks/useClearModals'
 
 const features = [
 	{
@@ -208,8 +209,8 @@ const features = [
 
 const HomeView = () => {
 	const {t} = useTranslation()
-	const {handleOpenModal, handleCloseModal, isOpen, payload, handleConfirm} =
-		useModal<{message?: string; data?: {name: string}}>('myModal')
+	const {openModal} = useModalStore()
+	useClearModals([MODAL_KEYS.DEMO_MODAL])
 
 	return (
 		<>
@@ -237,7 +238,7 @@ const HomeView = () => {
 						<button
 							className='bg-gradient-to-r from-teal-500 to-violet-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:from-teal-600 hover:to-violet-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-violet-400 text-lg'
 							onClick={() =>
-								handleOpenModal({
+								openModal(MODAL_KEYS.DEMO_MODAL, {
 									message: t('home.modalDemoMessage'),
 									data: {name: t('home.modalDemoName')},
 								})
@@ -281,12 +282,6 @@ const HomeView = () => {
 					</div>
 				</div>
 			</div>
-			<DemoModal
-				isOpen={isOpen}
-				handleCloseModal={handleCloseModal}
-				handleConfirm={handleConfirm}
-				payload={payload}
-			/>
 		</>
 	)
 }
