@@ -54,6 +54,11 @@
 					"desc": "브라우저용 Promise 기반 HTTP 클라이언트."
 				}
 			}
+		},
+		"search": {
+			"placeholder": "검색어를 입력하세요...",
+			"clear": "지우기",
+			"result_label": "검색어:"
 		}
 	}
 }
