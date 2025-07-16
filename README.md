@@ -15,6 +15,7 @@ A modern and efficient React starter template with TypeScript, Tailwind CSS, and
 - 🌐 [React Router](https://reactrouter.com/) for routing
 - 📅 [Day.js](https://day.js.org/) for date manipulation
 - 🔄 [Axios](https://axios-http.com/) for HTTP requests
+- 🔄 [SWR](https://swr.vercel.app/) for data fetching and caching
 
 ## 🛠️ Prerequisites
 
@@ -61,7 +62,7 @@ src/
 ├── components/       # Reusable UI components
 ├── configs/          # Configuration files (env, http, app urls)
 ├── constants/        # Application constants and shared values
-├── hooks/            # Custom React hooks (useFetch, useMutation, useKeyPress)
+├── hooks/            # Custom React hooks (useNews, useFetch, useMutation, useKeyPress)
 ├── layouts/          # Layout components and templates
 ├── pages/            # Page components
 ├── providers/        # React context providers
@@ -136,6 +137,50 @@ const HomeView = () => {
   )
 }
 ```
+
+## 📡 Data Fetching
+
+This project uses [SWR](https://swr.vercel.app/) for data fetching, which provides features like:
+
+- Automatic caching and revalidation
+- Real-time experience
+- Request deduplication
+- TypeScript ready
+- Suspense mode support
+
+### Custom Hooks
+
+The project includes custom hooks for data fetching:
+
+#### useNews Hook
+
+A custom hook for fetching news data:
+
+```typescript
+import useNews from '@/hooks/useNews'
+
+const MyComponent = () => {
+  const { news, isLoading, error } = useNews()
+
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error loading news</div>
+
+  return (
+    <div>
+      {news?.map(item => (
+        <div key={item.ticker}>{item.name}</div>
+      ))}
+    </div>
+  )
+}
+```
+
+The `useNews` hook provides:
+
+- Automatic data fetching and caching
+- Loading state management
+- Error handling
+- Type-safe data access
 
 ## 🤝 Contributing
 

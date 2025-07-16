@@ -3,6 +3,8 @@ import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
 import useModalStore from '@/store/useModal.store'
 import {MODAL_KEYS} from '@/constants/modals.constant'
 import useClearModals from '@/hooks/useClearModals'
+import SearchDemo from '@/components/SearchDemo/SearchDemo'
+import SearchResult from '@/components/SearchDemo/SearchResult'
 
 const features = [
 	{
@@ -205,6 +207,45 @@ const features = [
 		titleKey: 'home.features.axios.title',
 		descKey: 'home.features.axios.desc',
 	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-purple-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<path
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					d='M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4'
+				/>
+			</svg>
+		),
+		titleKey: 'home.features.swr.title',
+		descKey: 'home.features.swr.desc',
+	},
+	{
+		icon: (
+			<svg
+				className='w-8 h-8 text-rose-400'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				viewBox='0 0 24 24'
+			>
+				<path
+					strokeLinecap='round'
+					strokeLinejoin='round'
+					d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
+				/>
+				<path strokeLinecap='round' strokeLinejoin='round' d='M10 7v6l4 2' />
+			</svg>
+		),
+		titleKey: 'home.features.nuqs.title',
+		descKey: 'home.features.nuqs.desc',
+	},
 ]
 
 const HomeView = () => {
@@ -247,6 +288,11 @@ const HomeView = () => {
 							{t('home.modalDemo')}
 						</button>
 					</div>
+
+					<section className='w-full max-w-xl flex flex-col items-center mt-[40px]'>
+						<SearchDemo />
+						<SearchResult />
+					</section>
 					{/* Features Grid */}
 					<div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 w-full'>
 						{features.map((f, i) => (

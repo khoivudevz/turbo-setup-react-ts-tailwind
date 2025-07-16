@@ -1,8 +1,7 @@
 import {MODAL_KEYS} from '@/constants/modals.constant'
 import useModalStore from '@/store/useModal.store'
 import Modal from '../Modal'
-import dumbServices from '@/services/dumb.service'
-import useFetch from '@/hooks/useFetch'
+import useNews from '@/hooks/useNews'
 
 type Props = {
 	isOpen: boolean
@@ -11,24 +10,31 @@ type Props = {
 
 const DemoModal = ({isOpen, payload}: Props) => {
 	const {closeModal} = useModalStore()
-	const {data, loading} = useFetch(() => dumbServices.getNews({}))
+	const {news, isLoading} = useNews()
+
+	const handleClose = () => {
+		closeModal(MODAL_KEYS.DEMO_MODAL, () => {
+			alert('Close callback')
+		})
+	}
+
 	return (
 		<Modal
 			visible={isOpen}
-			onClose={() => closeModal(MODAL_KEYS.DEMO_MODAL)}
-			title='Welcome!'
+			onClose={handleClose}
+			title={<p className='text-white'>Welcome!</p>}
 		>
 			<div className='p-2'>
-				<p className='text-lg text-black font-medium text-center'>
+				<p className='text-lg text-white font-medium text-center'>
 					{payload?.message}
 				</p>
 				<div className='w-full mt-6 bg-white/10 border border-white/10 rounded-2xl p-5 shadow'>
 					<p className='text-white font-bold mb-2'>Test api list</p>
-					{loading ? (
+					{isLoading ? (
 						<div className='text-gray-300'>Loading...</div>
-					) : data && data.length > 0 ? (
+					) : news && news.length > 0 ? (
 						<ul className='list-disc list-inside text-gray-200 max-h-64 overflow-y-auto'>
-							{data.map((item: {ticker: string; name: string}, idx: number) => (
+							{news.map((item: {ticker: string; name: string}, idx: number) => (
 								<li key={idx} className='mb-1'>
 									<span className='font-semibold text-sky-300'>
 										{item.ticker}
@@ -43,16 +49,11 @@ const DemoModal = ({isOpen, payload}: Props) => {
 				</div>
 				<div className='flex gap-3 mt-6 justify-center'>
 					<button
-						onClick={() =>
-							closeModal(MODAL_KEYS.DEMO_MODAL, () => {
-								alert('Close callback')
-							})
-						}
+						onClick={handleClose}
 						className='bg-gray-700 text-gray-200 px-5 py-2 rounded-full font-semibold shadow hover:bg-gray-800 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500'
 					>
 						Cancel
 					</button>
-
 					<button
 						onClick={() => {
 							alert(payload?.data?.name)

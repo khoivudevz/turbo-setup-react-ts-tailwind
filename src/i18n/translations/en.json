@@ -53,8 +53,21 @@
 				"axios": {
 					"title": "Axios",
 					"desc": "Promise-based HTTP client for the browser."
+				},
+				"swr": {
+					"title": "SWR",
+					"desc": "React Hooks library for data fetching with caching and revalidation."
+				},
+				"nuqs": {
+					"title": "nuqs",
+					"desc": "Type-safe URL state management with React hooks."
 				}
 			}
+		},
+		"search": {
+			"placeholder": "Type your search...",
+			"clear": "Clear",
+			"result_label": "Search text:"
 		}
 	}
 }
