@@ -12,14 +12,20 @@ const DemoModal = ({isOpen, payload}: Props) => {
 	const {closeModal} = useModalStore()
 	const {news, isLoading} = useNews()
 
+	const handleClose = () => {
+		closeModal(MODAL_KEYS.DEMO_MODAL, () => {
+			alert('Close callback')
+		})
+	}
+
 	return (
 		<Modal
 			visible={isOpen}
-			onClose={() => closeModal(MODAL_KEYS.DEMO_MODAL)}
-			title='Welcome!'
+			onClose={handleClose}
+			title={<p className='text-white'>Welcome!</p>}
 		>
 			<div className='p-2'>
-				<p className='text-lg text-black font-medium text-center'>
+				<p className='text-lg text-white font-medium text-center'>
 					{payload?.message}
 				</p>
 				<div className='w-full mt-6 bg-white/10 border border-white/10 rounded-2xl p-5 shadow'>
@@ -43,16 +49,11 @@ const DemoModal = ({isOpen, payload}: Props) => {
 				</div>
 				<div className='flex gap-3 mt-6 justify-center'>
 					<button
-						onClick={() =>
-							closeModal(MODAL_KEYS.DEMO_MODAL, () => {
-								alert('Close callback')
-							})
-						}
+						onClick={handleClose}
 						className='bg-gray-700 text-gray-200 px-5 py-2 rounded-full font-semibold shadow hover:bg-gray-800 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500'
 					>
 						Cancel
 					</button>
-
 					<button
 						onClick={() => {
 							alert(payload?.data?.name)

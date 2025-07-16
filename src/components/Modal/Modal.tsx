@@ -7,7 +7,7 @@ type Props = {
 	visible: boolean
 	onClose: () => void
 	children: React.ReactNode
-	title: string
+	title: string | React.ReactNode
 	className?: string
 	animation?: string
 	maskAnimation?: string
@@ -53,4 +53,8 @@ const StyledDialogWrap = styled(DialogWrap)`
 	align-items: center;
 	justify-content: center;
 	min-height: calc(100dvh - 60px);
+	.rc-dialog-header,
+	.rc-dialog-body {
+		background-color: #141938;
+	}
 `
