@@ -1,4 +1,5 @@
 import DemoModal from '@/components/Modal/components/DemoModal'
+import ModalWrapper from '@/components/Modal/ModalWrapper'
 import {MODAL_KEYS} from '@/constants/modals.constant'
 import useModalStore from '@/store/useModal.store'
 import {FC} from 'react'
@@ -13,12 +14,12 @@ const ModalsProvider: FC<Props> = ({children}) => {
 		<>
 			{children}
 
-			{modals[MODAL_KEYS.DEMO_MODAL]?.isOpen && (
+			<ModalWrapper visible={modals[MODAL_KEYS.DEMO_MODAL]?.isOpen}>
 				<DemoModal
 					isOpen={modals[MODAL_KEYS.DEMO_MODAL]?.isOpen}
 					payload={modals[MODAL_KEYS.DEMO_MODAL]?.payload}
 				/>
-			)}
+			</ModalWrapper>
 		</>
 	)
 }
