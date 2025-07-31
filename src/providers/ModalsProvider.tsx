@@ -13,10 +13,12 @@ const ModalsProvider: FC<Props> = ({children}) => {
 		<>
 			{children}
 
-			<DemoModal
-				isOpen={modals[MODAL_KEYS.DEMO_MODAL]?.isOpen}
-				payload={modals[MODAL_KEYS.DEMO_MODAL]?.payload}
-			/>
+			{modals[MODAL_KEYS.DEMO_MODAL]?.isOpen && (
+				<DemoModal
+					isOpen={modals[MODAL_KEYS.DEMO_MODAL]?.isOpen}
+					payload={modals[MODAL_KEYS.DEMO_MODAL]?.payload}
+				/>
+			)}
 		</>
 	)
 }
