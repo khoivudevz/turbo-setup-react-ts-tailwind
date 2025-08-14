@@ -41,17 +41,19 @@ bun install
 # Start development server
 
 ```
-bun dev # Development mode
-bun dev:stg # Staging mode
-bun dev:prod # Production mode
+bun run dev
 ```
 
-# Start development server
+# Build command
 
 ```
-bun build # Production build
-bun build:stg # Staging build
-bun build:dev # Development build
+bun run build
+```
+
+# Start preview
+
+```
+bun run preview
 ```
 
 ## 📁 Development
