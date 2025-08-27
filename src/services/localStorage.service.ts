@@ -8,7 +8,7 @@ export const localStorageServices = {
 		localStorage.setItem(key, json)
 	},
 	getLocalStorage: <T>(key: string) => {
-		if (localStorage.getItem(localStorageKey.USER_INFOR)) {
+		if (localStorage.getItem(key)) {
 			const json = localStorage.getItem(key)
 			if (!json) return null
 			return JSON.parse(json) as T

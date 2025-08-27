@@ -1,10 +1,10 @@
-import {useTranslation} from 'react-i18next'
-import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
-import useModalStore from '@/store/useModal.store'
-import {MODAL_KEYS} from '@/constants/modals.constant'
-import useClearModals from '@/hooks/useClearModals'
 import SearchDemo from '@/components/SearchDemo/SearchDemo'
 import SearchResult from '@/components/SearchDemo/SearchResult'
+import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
+import {MODAL_KEYS} from '@/constants/modals.constant'
+import useClearModals from '@/hooks/useClearModals'
+import useModalStore from '@/store/useModal.store'
+import {useTranslation} from 'react-i18next'
 
 const features = [
 	{
