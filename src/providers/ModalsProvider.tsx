@@ -1,5 +1,5 @@
-import DemoModal from '@/components/Modal/components/DemoModal'
-import ModalWrapper from '@/components/Modal/ModalWrapper'
+import DemoModal from '@/components/modal/components/demo-modal'
+import ModalWrapper from '@/components/modal/modal-wrapper'
 import {MODAL_KEYS} from '@/constants/modals.constant'
 import useModalStore from '@/store/useModal.store'
 import {FC} from 'react'
