@@ -1,5 +1,5 @@
 import {MODAL_KEYS} from '@/constants/modals.constant'
-import useModalStore from '@/store/useModal.store'
+import useModalStore from '@/store/use-modal.store'
 import Modal from '../modal'
 import useNews from '@/hooks/use-news'
 

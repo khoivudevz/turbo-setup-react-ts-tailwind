@@ -1,4 +1,4 @@
-import useModalStore, {ModalKey} from '@/store/useModal.store'
+import useModalStore, {ModalKey} from '@/store/use-modal.store'
 import {useEffect} from 'react'
 
 const useClearModals = (keys: ModalKey[]) => {

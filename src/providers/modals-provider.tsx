@@ -1,7 +1,7 @@
 import DemoModal from '@/components/modal/components/demo-modal'
 import ModalWrapper from '@/components/modal/modal-wrapper'
 import {MODAL_KEYS} from '@/constants/modals.constant'
-import useModalStore from '@/store/useModal.store'
+import useModalStore from '@/store/use-modal.store'
 import {FC} from 'react'
 
 type Props = {

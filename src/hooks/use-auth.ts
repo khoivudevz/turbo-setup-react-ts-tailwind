@@ -1,4 +1,4 @@
-import useUserStore from '@/store/useUser.store'
+import useUserStore from '@/store/use-user.store'
 import {User} from '@/types/auth.type'
 import {saveAuth, removeAuth} from '@/services/cookie.service'
 import {
