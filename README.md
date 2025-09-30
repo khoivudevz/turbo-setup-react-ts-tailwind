@@ -66,7 +66,7 @@ src/
 ├── constants/        # Application constants and shared values
 ├── hooks/            # Custom React hooks (useNews, useFetch, useMutation, useKeyPress)
 ├── layouts/          # Layout components and templates
-├── pages/            # Page components
+├── pages/            # Page components (routing entry points, data fetching)
 ├── providers/        # React context providers
 ├── router/           # Routing configuration
 ├── services/         # Browser services (cookies, localStorage)
@@ -74,8 +74,62 @@ src/
 ├── styles/           # Global styles and Tailwind imports
 ├── types/            # TypeScript type definitions
 ├── utils/            # Utility functions
-└── views/            # View components
+└── views/            # View components (pure presentation, reusable UI)
 ```
+
+## 📁 Directory Structure Explained
+
+### Pages vs Views
+
+This project uses a clear separation between **Pages** and **Views** to maintain clean architecture:
+
+**Pages** (`src/pages/`):
+
+- **Routing entry points** - Directly referenced by the router
+- **Data fetching layer** - Handle API calls, route parameters, authentication
+- **Layout orchestration** - Decide which layout to use
+- **Error handling** - Loading states, error boundaries
+- **Minimal UI** - Just composition and data preparation
+
+**Views** (`src/views/`):
+
+- **Pure presentation components** - Focused on UI rendering
+- **Reusable across different pages** - Same view can be used in different contexts
+- **Business logic** - Form handling, user interactions, component composition
+- **Props-based** - Receive data from pages as props
+
+### Example Structure
+
+```typescript
+// src/pages/home-page/home-page.tsx
+const HomePage = () => {
+  // Data fetching, route params, auth checks
+  const { data, loading, error } = useHomeData()
+
+  if (loading) return <LoadingSpinner />
+  if (error) return <ErrorPage />
+
+  return <HomeView data={data} />
+}
+
+// src/views/home-view/home-view.tsx
+interface HomeViewProps {
+  data: HomeData
+}
+
+const HomeView = ({ data }: HomeViewProps) => {
+  // Pure presentation logic
+  // All UI components and interactions
+}
+```
+
+### Benefits
+
+- **Testability** - Views can be tested independently with mock data
+- **Reusability** - Same view can be used across different pages
+- **Clear responsibilities** - Pages handle data, Views handle presentation
+- **Easier maintenance** - Changes to data fetching don't affect UI logic
+- **Better code organization** - Clear separation of concerns
 
 ## 🔧 Configuration
 
@@ -159,7 +213,7 @@ The project includes custom hooks for data fetching:
 A custom hook for fetching news data:
 
 ```typescript
-import useNews from '@/hooks/useNews'
+import useNews from '@/hooks/use-news'
 
 const MyComponent = () => {
   const { news, isLoading, error } = useNews()

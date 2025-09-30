@@ -1,8 +1,8 @@
-import SearchDemo from '@/components/SearchDemo/SearchDemo'
-import SearchResult from '@/components/SearchDemo/SearchResult'
-import SwitchLanguage from '@/components/SwitchLanguage/SwitchLanguage'
+import SearchDemo from '@/components/search-demo/search-demo'
+import SearchResult from '@/components/search-demo/search-result'
+import SwitchLanguage from '@/components/switch-language/switch-language'
 import {MODAL_KEYS} from '@/constants/modals.constant'
-import useClearModals from '@/hooks/useClearModals'
+import useClearModals from '@/hooks/use-clear-modals'
 import useModalStore from '@/store/useModal.store'
 import {useTranslation} from 'react-i18next'
 
@@ -248,7 +248,7 @@ const features = [
 	},
 ]
 
-const HomeView = () => {
+const ExampleView = () => {
 	const {t} = useTranslation()
 	const {openModal} = useModalStore()
 	useClearModals([MODAL_KEYS.DEMO_MODAL])
@@ -332,4 +332,4 @@ const HomeView = () => {
 	)
 }
 
-export default HomeView
+export default ExampleView
