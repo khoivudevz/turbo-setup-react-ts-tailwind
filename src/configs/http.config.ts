@@ -9,7 +9,7 @@ import {
 export const api = axios.create({
 	baseURL: ENV.apiUrl,
 	timeout: 20000, // 20s
-	withCredentials: true,
+	withCredentials: false,
 })
 
 api.interceptors.request.use(
