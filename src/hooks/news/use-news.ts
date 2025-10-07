@@ -1,4 +1,4 @@
-import useFetch from './use-fetch'
+import useFetch from '../common/use-fetch'
 import dumbServices from '@/services/dumb.service'
 
 export const useNews = () => {

@@ -2,7 +2,7 @@ import SearchDemo from '@/components/search-demo/search-demo'
 import SearchResult from '@/components/search-demo/search-result'
 import SwitchLanguage from '@/components/switch-language/switch-language'
 import {MODAL_KEYS} from '@/constants/modals.constant'
-import useClearModals from '@/hooks/use-clear-modals'
+import useClearModals from '@/hooks/common/use-clear-modals'
 import useModalStore from '@/store/use-modal.store'
 import {useTranslation} from 'react-i18next'
 

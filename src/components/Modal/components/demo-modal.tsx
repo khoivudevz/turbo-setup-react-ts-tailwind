@@ -1,7 +1,7 @@
 import {MODAL_KEYS} from '@/constants/modals.constant'
 import useModalStore from '@/store/use-modal.store'
 import Modal from '../modal'
-import useNews from '@/hooks/use-news'
+import useNews from '@/hooks/news/use-news'
 
 type Props = {
 	isOpen: boolean

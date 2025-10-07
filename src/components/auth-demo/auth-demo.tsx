@@ -1,4 +1,4 @@
-import useAuth from '@/hooks/use-auth'
+import useAuth from '@/hooks/auth/use-auth'
 import {User} from '@/types/auth.type'
 
 const AuthDemo = () => {
