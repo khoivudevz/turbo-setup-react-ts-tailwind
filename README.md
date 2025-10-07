@@ -15,7 +15,7 @@ A modern and efficient React starter template with TypeScript, Tailwind CSS, and
 - 🌐 [React Router](https://reactrouter.com/) for routing
 - 📅 [Day.js](https://day.js.org/) for date manipulation
 - 🔄 [Axios](https://axios-http.com/) for HTTP requests
-- 🔄 [SWR](https://swr.vercel.app/) for data fetching and caching
+- 🔄 Custom `use-fetch` hook for data fetching
 
 ## 🛠️ Prerequisites
 
@@ -64,7 +64,11 @@ src/
 ├── components/       # Reusable UI components
 ├── configs/          # Configuration files (env, http, app urls)
 ├── constants/        # Application constants and shared values
-├── hooks/            # Custom React hooks (useNews, useFetch, useMutation, useKeyPress)
+├── hooks/            # Custom React hooks organized by category
+│   ├── auth/         # Authentication hooks (useAuth, useLogin)
+│   ├── common/       # Common hooks (useFetch, useMutation, useKeyPress, useClearModals)
+│   ├── news/         # News-related hooks (useNews)
+│   └── user/         # User management hooks (useCreateUser, useUpdateUser, useDeleteUser)
 ├── layouts/          # Layout components and templates
 ├── pages/            # Page components (routing entry points, data fetching)
 ├── providers/        # React context providers
@@ -196,17 +200,166 @@ const HomeView = () => {
 
 ## 📡 Data Fetching
 
-This project uses [SWR](https://swr.vercel.app/) for data fetching, which provides features like:
+This project uses a custom `use-fetch` hook for data fetching, which provides:
 
-- Automatic caching and revalidation
-- Real-time experience
-- Request deduplication
-- TypeScript ready
-- Suspense mode support
+- Simple and lightweight data fetching
+- Loading state management
+- Error handling
+- TypeScript support
+- Conditional fetching with `enabled` option
+- Manual execution control
 
 ### Custom Hooks
 
 The project includes custom hooks for data fetching:
+
+#### useFetch Hook
+
+A flexible hook for data fetching with conditional support:
+
+```typescript
+import useFetch from '@/hooks/use-fetch'
+
+// Basic usage
+const {data, isLoading, error, execute, reset} = useFetch(() => api.getData(), {
+	immediate: true,
+})
+
+// Conditional fetching
+const {data, isLoading, error} = useFetch(() => api.getData(), {
+	immediate: true,
+	enabled: shouldFetch, // Only fetch when condition is true
+})
+
+// Manual fetching
+const {data, isLoading, error, execute} = useFetch(
+	() => api.getData(),
+	{immediate: false} // Don't fetch automatically
+)
+
+// Then call execute() manually when needed
+```
+
+#### useMutation Hook
+
+A powerful hook for handling mutations (POST, PUT, DELETE operations):
+
+```typescript
+import useMutation from '@/hooks/use-mutation'
+
+// Basic usage
+const {data, isLoading, isError, isSuccess, error, mutate, reset} = useMutation({
+  onSuccess: (data) => {
+    console.log('User created:', data)
+  },
+  onError: (error) => {
+    console.error('Failed to create user:', error)
+  },
+})
+
+// Usage in component
+const MyComponent = () => {
+  const createUser = useMutation()
+
+  const handleSubmit = async (formData) => {
+    await createUser.mutate(async (userData) => {
+      const response = await api.post('/users', userData)
+      return response
+    }, formData)
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button disabled={createUser.isLoading}>
+        {createUser.isLoading ? 'Creating...' : 'Create User'}
+      </button>
+      {createUser.isSuccess && <div>User created successfully!</div>}
+      {createUser.isError && <div>Error: {createUser.error.message}</div>}
+    </form>
+  )
+}
+```
+
+#### Specialized Mutation Hooks
+
+The project includes specialized hooks for common operations:
+
+**useCreateUser Hook:**
+
+```typescript
+import useCreateUser from '@/hooks/user/use-create-user'
+
+const MyComponent = () => {
+  const {createUser, data, isLoading, isError, isSuccess, error, reset} = useCreateUser()
+
+  const handleSubmit = async (formData) => {
+    await createUser({
+      name: formData.name,
+      email: formData.email,
+      role: 'user'
+    })
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button disabled={isLoading}>
+        {isLoading ? 'Creating...' : 'Create User'}
+      </button>
+      {isSuccess && <div>User created: {data?.name}</div>}
+      {isError && <div>Error: {error?.message}</div>}
+    </form>
+  )
+}
+```
+
+**useUpdateUser Hook:**
+
+```typescript
+import useUpdateUser from '@/hooks/user/use-update-user'
+
+const MyComponent = () => {
+	const {updateUser, isLoading, isSuccess, error} = useUpdateUser()
+
+	const handleUpdate = async (userData) => {
+		await updateUser({
+			id: 'user-123',
+			name: userData.name,
+			email: userData.email,
+		})
+	}
+}
+```
+
+**useDeleteUser Hook:**
+
+```typescript
+import useDeleteUser from '@/hooks/user/use-delete-user'
+
+const MyComponent = () => {
+	const {deleteUser, isLoading, isSuccess, error} = useDeleteUser()
+
+	const handleDelete = async (userId) => {
+		await deleteUser({id: userId})
+	}
+}
+```
+
+**useLogin Hook:**
+
+```typescript
+import useLogin from '@/hooks/auth/use-login'
+
+const MyComponent = () => {
+	const {login, data, isLoading, isSuccess, error} = useLogin()
+
+	const handleLogin = async (credentials) => {
+		await login({
+			email: credentials.email,
+			password: credentials.password,
+		})
+	}
+}
+```
 
 #### useNews Hook
 
@@ -216,7 +369,7 @@ A custom hook for fetching news data:
 import useNews from '@/hooks/use-news'
 
 const MyComponent = () => {
-  const { news, isLoading, error } = useNews()
+  const { news, isLoading, error, refetch } = useNews()
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error loading news</div>
@@ -226,17 +379,60 @@ const MyComponent = () => {
       {news?.map(item => (
         <div key={item.ticker}>{item.name}</div>
       ))}
+      <button onClick={refetch}>Refresh News</button>
     </div>
   )
 }
 ```
 
-The `useNews` hook provides:
+### useFetch Features
 
-- Automatic data fetching and caching
+- **Automatic fetching**: Set `immediate: true` to fetch on mount
+- **Conditional fetching**: Use `enabled` option to control when to fetch
+- **Manual control**: Call `execute()` to fetch manually
+- **Error handling**: Built-in error state management
+- **Loading states**: Automatic loading state management
+- **Reset functionality**: Call `reset()` to clear data and error states
+- **TypeScript support**: Full type safety with generics
+
+### useMutation Features
+
+- **Loading states**: `isLoading` for pending operations
+- **Success states**: `isSuccess` and `data` for successful operations
+- **Error states**: `isError` and `error` for failed operations
+- **Flexible execution**: Call `mutate(mutationFn, variables)` with any async function
+- **Callbacks**: `onSuccess`, `onError`, and `onSettled` for side effects
+- **Reset functionality**: Call `reset()` to clear all states
+- **TypeScript support**: Full type safety with generics
+- **Promise handling**: Both sync (`mutate`) and async (`mutateAsync`) execution
+- **Dynamic mutations**: Pass different mutation functions on each call
+
+### Demo Component
+
+The project includes a comprehensive demo component (`src/components/mutation-demo/mutation-demo.tsx`) that showcases all mutation patterns:
+
+- **Create User Form**: Complete form with validation and success/error states
+- **Update User**: Button-based update with loading states
+- **Delete User**: Confirmation-style deletion with feedback
+- **Login Form**: Authentication form with token handling
+- **Reset All**: Clear all mutation states
+
+```typescript
+import MutationDemo from '@/components/mutation-demo/mutation-demo'
+
+const App = () => {
+  return <MutationDemo />
+}
+```
+
+The demo component demonstrates:
+
+- Real-world form handling
 - Loading state management
-- Error handling
-- Type-safe data access
+- Error handling and display
+- Success feedback
+- State reset functionality
+- TypeScript integration
 
 ## 🤝 Contributing
 
