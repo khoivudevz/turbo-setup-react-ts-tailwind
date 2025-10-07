@@ -23,7 +23,6 @@
 		"react-dom": "^19.1.1",
 		"react-router-dom": "^7.8.2",
 		"styled-components": "^6.1.19",
-		"swr": "^2.3.6",
 		"tailwind-merge": "^3.3.1",
 		"zustand": "^5.0.8"
 	},
