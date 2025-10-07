@@ -2,7 +2,7 @@ import {useState, useEffect, useCallback} from 'react'
 
 type UseFetchOptions = {
 	immediate?: boolean
-	enabled?: boolean // New option for conditional fetching
+	enabled?: boolean
 	onSuccess?: (data: any) => void
 	onError?: (error: any) => void
 }
@@ -50,7 +50,7 @@ export function useFetch<T = any>(
 		if (immediate && enabled) {
 			execute()
 		}
-	}, [execute, immediate, enabled])
+	}, [immediate, enabled])
 
 	return {
 		data,
