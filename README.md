@@ -5,6 +5,7 @@ A modern and efficient React starter template with TypeScript, Tailwind CSS, and
 ## 🚀 Features
 
 - ⚡️ [React 19](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
+- ⚛️ [React Compiler](https://react.dev/learn/react-compiler) enabled via Babel plugin for automatic optimization
 - 🎨 [Tailwind CSS](https://tailwindcss.com/) for styling
 - 📦 [Vite](https://vitejs.dev/) for fast development and building
 - 🔍 [ESLint](https://eslint.org/) for code linting
@@ -158,6 +159,12 @@ The project includes two TypeScript configurations:
 - ESLint is configured with TypeScript and React rules
 - Prettier is set up with custom formatting rules
 - Pre-commit hooks ensure code quality
+
+### React Compiler
+
+The project uses [React Compiler](https://react.dev/learn/react-compiler) via `babel-plugin-react-compiler` for automatic optimization of React components. The compiler is configured in `vite.config.ts` using `@vitejs/plugin-react` (Babel-based) to support Babel plugins.
+
+**Note:** The project uses `@vitejs/plugin-react` instead of `@vitejs/plugin-react-swc` to enable Babel plugin support for the React Compiler.
 
 ## 🌍 Internationalization (i18n)
 
