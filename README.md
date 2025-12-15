@@ -4,19 +4,21 @@ A modern and efficient React starter template with TypeScript, Tailwind CSS, and
 
 ## 🚀 Features
 
-- ⚡️ [React 19](https://react.dev/) with [TypeScript](https://www.typescriptlang.org/)
+- ⚡️ [React 19.2.3](https://react.dev/) with [TypeScript 5.9.3](https://www.typescriptlang.org/)
 - ⚛️ [React Compiler](https://react.dev/learn/react-compiler) enabled via Babel plugin for automatic optimization
-- 🎨 [Tailwind CSS](https://tailwindcss.com/) for styling
-- 📦 [Vite](https://vitejs.dev/) for fast development and building
+- 🎨 [Tailwind CSS v4](https://tailwindcss.com/) for styling
+- 📦 [Vite 7.2.7](https://vitejs.dev/) for fast development and building
 - 🔍 [ESLint](https://eslint.org/) for code linting
 - 💅 [Prettier](https://prettier.io/) for code formatting
 - 🐶 [Husky](https://typicode.github.io/husky/) for Git hooks
 - 📋 [Commitlint](https://commitlint.js.org/) for conventional commits
 - 🏪 [Zustand](https://zustand-demo.pmnd.rs/) for state management
-- 🌐 [React Router](https://reactrouter.com/) for routing
+- 🌐 [React Router 7](https://reactrouter.com/) for routing
 - 📅 [Day.js](https://day.js.org/) for date manipulation
 - 🔄 [Axios](https://axios-http.com/) for HTTP requests
-- 🔄 Custom `use-fetch` hook for data fetching
+- 🔄 **Nuqs** for URL query state management
+- ⚡ Custom `use-fetch` and `use-mutation` hooks for data fetching
+- 🌍 [i18next](https://www.i18next.com/) for internationalization
 
 ## 🛠️ Prerequisites
 
@@ -25,62 +27,174 @@ A modern and efficient React starter template with TypeScript, Tailwind CSS, and
 
 ## 📦 Installation
 
-# Clone the repository
+### Using npx (Recommended)
 
+```bash
+npx turbo-setup react-tailwind
 ```
+
+### Manual Installation
+
+Clone the repository:
+
+```bash
 git clone https://github.com/khoivudevz/turbo-setup-react-ts-tailwind
+cd turbo-setup-react-ts-tailwind
 ```
 
-# Install dependencies
+Install dependencies:
 
-```
+```bash
 bun install
 ```
 
 ## 🚀 Development
 
-# Start development server
+### Available Scripts
 
-```
+```bash
+# Start development server (http://localhost:8000)
 bun run dev
-```
 
-# Build command
-
-```
+# Build for production
 bun run build
-```
 
-# Start preview
-
-```
+# Preview production build
 bun run preview
+
+# Run linting
+bun run lint
 ```
 
-## 📁 Development
+### Development Features
+
+- **Vite 7.2.7**: Lightning-fast HMR and builds
+- **React 19.2.3**: Latest React with new features
+- **React Compiler**: Automatic optimization via Babel plugin
+- **Hot Module Replacement**: Instant updates during development
+- **TypeScript**: Full type checking and IntelliSense
+- **ESLint**: Code quality and consistency
+- **Prettier**: Automatic code formatting
+- **Husky**: Git hooks for quality assurance
+
+## 📁 Project Structure
 
 ```
 src/
 ├── assets/           # Static assets (images, fonts, icons)
-├── components/       # Reusable UI components
+├── components/       # Reusable UI components (snake_case naming)
+│   ├── auth-demo/
+│   │   └── auth-demo.tsx
+│   ├── button/
+│   │   └── button.tsx
+│   ├── modal/
+│   │   ├── components/
+│   │   │   └── demo-modal.tsx
+│   │   ├── modal.tsx
+│   │   └── modal-wrapper.tsx
+│   ├── mutation-demo/
+│   │   └── mutation-demo.tsx
+│   ├── search-demo/
+│   │   ├── search-demo.tsx
+│   │   └── search-result.tsx
+│   └── switch-language/
+│       └── switch-language.tsx
 ├── configs/          # Configuration files (env, http, app urls)
+│   ├── app-url.config.ts
+│   ├── env.config.ts
+│   └── http.config.ts
 ├── constants/        # Application constants and shared values
-├── hooks/            # Custom React hooks organized by category
-│   ├── auth/         # Authentication hooks (useAuth, useLogin)
-│   ├── common/       # Common hooks (useFetch, useMutation, useKeyPress, useClearModals)
-│   ├── news/         # News-related hooks (useNews)
-│   └── user/         # User management hooks (useCreateUser, useUpdateUser, useDeleteUser)
+│   ├── common.constant.ts
+│   └── modals.constant.ts
+├── hooks/            # Custom React hooks organized by feature
+│   ├── auth/         # Authentication hooks
+│   │   ├── use-auth.ts
+│   │   └── use-login.ts
+│   ├── common/       # Common/shared hooks
+│   │   ├── use-clear-modals.ts
+│   │   ├── use-fetch.ts
+│   │   ├── use-key-press.ts
+│   │   └── use-mutation.ts
+│   ├── news/         # News feature hooks
+│   │   └── use-news.ts
+│   └── user/         # User management hooks
+│       ├── use-create-user.ts
+│       ├── use-delete-user.ts
+│       └── use-update-user.ts
+├── i18n/             # Internationalization
+│   ├── i18n.ts
+│   └── translations/
+│       ├── en.json
+│       └── ko.json
 ├── layouts/          # Layout components and templates
-├── pages/            # Page components (routing entry points, data fetching)
+│   └── main-layout.tsx
+├── pages/            # Page components (routing entry points)
+│   └── example-page.tsx
 ├── providers/        # React context providers
+│   ├── app-provider.tsx
+│   └── modals-provider.tsx
 ├── router/           # Routing configuration
+│   ├── lazy-components.tsx
+│   └── router.tsx
 ├── services/         # Browser services (cookies, localStorage)
+│   ├── cookie.service.ts
+│   ├── dumb.service.ts
+│   └── localStorage.service.ts
 ├── store/            # State management with Zustand
+│   ├── use-count.store.ts
+│   ├── use-modal.store.ts
+│   └── use-user.store.ts
 ├── styles/           # Global styles and Tailwind imports
+│   └── index.css
 ├── types/            # TypeScript type definitions
-├── utils/            # Utility functions
-└── views/            # View components (pure presentation, reusable UI)
+│   ├── auth.type.ts
+│   └── common.type.ts
+├── utils/            # Utility functions (snake_case naming)
+│   ├── cn.ts
+│   ├── delay.ts
+│   ├── format-date.ts
+│   └── text-slice-with-dot.ts
+└── views/            # View components (pure presentation)
+    └── example-view/
+        └── example-view.tsx
 ```
+
+## 📝 File Naming Convention
+
+This project follows a **snake_case** naming convention with **feature-based organization**:
+
+### Naming Rules
+
+- **Files**: Use snake_case (e.g., `use-auth.ts`, `modal-wrapper.tsx`)
+- **Directories**: Use snake_case (e.g., `example-view/`, `search-demo/`)
+- **Components**: Use PascalCase in code, snake_case for filenames
+- **Hooks**: Organized by feature with `use-` prefix (e.g., `hooks/auth/use-login.ts`)
+- **Stores**: Use snake_case with `.store.ts` suffix (e.g., `use-modal.store.ts`)
+
+### Examples
+
+```
+✅ Correct:
+- src/hooks/auth/use-auth.ts
+- src/hooks/common/use-fetch.ts
+- src/hooks/user/use-create-user.ts
+- src/components/modal/modal-wrapper.tsx
+- src/views/example-view/example-view.tsx
+- src/store/use-modal.store.ts
+- src/utils/format-date.ts
+
+❌ Avoid:
+- src/hooks/useAuth.ts
+- src/components/Modal/ModalWrapper.tsx
+- src/views/HomeView/HomeView.tsx
+```
+
+### Benefits
+
+- **Scalability**: Easy to add new features without cluttering the structure
+- **Consistency**: Uniform naming across all files
+- **Readability**: Easier to scan and understand file structure
+- **Maintainability**: Clear patterns for different file types
 
 ## 📁 Directory Structure Explained
 
@@ -205,6 +319,33 @@ const HomeView = () => {
 }
 ```
 
+## 🔗 URL State Management (Nuqs)
+
+The project uses [nuqs](https://nuqs.47ng.com/) for managing URL query state:
+
+```typescript
+import {useQueryState} from 'nuqs'
+
+const SearchDemo = () => {
+  const [name, setName] = useQueryState('name')
+
+  return (
+    <input
+      value={name || ''}
+      onChange={(e) => setName(e.target.value)}
+      placeholder="Search..."
+    />
+  )
+}
+```
+
+### Benefits
+
+- **URL Synchronization**: State is automatically synced with URL query parameters
+- **Shareable URLs**: Users can share URLs with specific state
+- **Browser History**: Navigation works with browser back/forward buttons
+- **Type-Safe**: Full TypeScript support
+
 ## 📡 Data Fetching
 
 This project uses a custom `use-fetch` hook for data fetching, which provides:
@@ -225,7 +366,7 @@ The project includes custom hooks for data fetching:
 A flexible hook for data fetching with conditional support:
 
 ```typescript
-import useFetch from '@/hooks/use-fetch'
+import useFetch from '@/hooks/common/use-fetch'
 
 // Basic usage
 const {data, isLoading, error, execute, reset} = useFetch(() => api.getData(), {
@@ -252,7 +393,7 @@ const {data, isLoading, error, execute} = useFetch(
 A powerful hook for handling mutations (POST, PUT, DELETE operations):
 
 ```typescript
-import useMutation from '@/hooks/use-mutation'
+import useMutation from '@/hooks/common/use-mutation'
 
 // Basic usage
 const {data, isLoading, isError, isSuccess, error, mutate, reset} = useMutation({
@@ -373,7 +514,7 @@ const MyComponent = () => {
 A custom hook for fetching news data:
 
 ```typescript
-import useNews from '@/hooks/use-news'
+import useNews from '@/hooks/news/use-news'
 
 const MyComponent = () => {
   const { news, isLoading, error, refetch } = useNews()
@@ -440,6 +581,26 @@ The demo component demonstrates:
 - Success feedback
 - State reset functionality
 - TypeScript integration
+
+## 🛠️ Technologies Used
+
+| Technology        | Version | Description                            |
+| ----------------- | ------- | -------------------------------------- |
+| React             | 19.2.3  | UI library with compiler optimizations |
+| TypeScript        | 5.9.3   | Type-safe JavaScript                   |
+| Vite              | 7.2.7   | Next-generation build tool             |
+| TailwindCSS       | 4.1.18  | Utility-first CSS framework            |
+| React Router      | 7.10.1  | Declarative routing                    |
+| Zustand           | 5.0.9   | Lightweight state management           |
+| i18next           | 25.7.2  | Internationalization framework         |
+| react-i18next     | 16.5.0  | React bindings for i18next             |
+| nuqs              | 2.8.5   | URL query state management             |
+| Axios             | 1.13.2  | HTTP client                            |
+| Day.js            | 1.11.19 | Date manipulation                      |
+| styled-components | 6.1.19  | CSS-in-JS                              |
+| Husky             | 9.1.7   | Git hooks                              |
+| ESLint            | 9.39.2  | Code linting                           |
+| Prettier          | 3.7.4   | Code formatting                        |
 
 ## 🤝 Contributing
 
