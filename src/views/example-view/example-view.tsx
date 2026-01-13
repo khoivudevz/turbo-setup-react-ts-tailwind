@@ -1,9 +1,7 @@
 import SearchDemo from '@/components/search-demo/search-demo'
 import SearchResult from '@/components/search-demo/search-result'
 import SwitchLanguage from '@/components/switch-language/switch-language'
-import {MODAL_KEYS} from '@/constants/modals.constant'
-import useClearModals from '@/hooks/common/use-clear-modals'
-import useModalStore from '@/store/use-modal.store'
+
 import {useTranslation} from 'react-i18next'
 
 const features = [
@@ -250,8 +248,6 @@ const features = [
 
 const ExampleView = () => {
 	const {t} = useTranslation()
-	const {openModal} = useModalStore()
-	useClearModals([MODAL_KEYS.DEMO_MODAL])
 
 	return (
 		<>
@@ -275,18 +271,6 @@ const ExampleView = () => {
 							{t('home.heroDesc')}
 						</p>
 						<SwitchLanguage />
-						{/* Get Started Button */}
-						<button
-							className='bg-gradient-to-r from-teal-500 to-violet-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-105 hover:from-teal-600 hover:to-violet-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-violet-400 text-lg'
-							onClick={() =>
-								openModal(MODAL_KEYS.DEMO_MODAL, {
-									message: t('home.modalDemoMessage'),
-									data: {name: t('home.modalDemoName')},
-								})
-							}
-						>
-							{t('home.modalDemo')}
-						</button>
 					</div>
 
 					<section className='w-full max-w-xl flex flex-col items-center mt-[40px]'>
