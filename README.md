@@ -91,7 +91,6 @@ src/
 │   │   ├── components/
 │   │   │   └── demo-modal.tsx
 │   │   ├── modal.tsx
-│   │   └── modal-wrapper.tsx
 │   ├── mutation-demo/
 │   │   └── mutation-demo.tsx
 │   ├── search-demo/
@@ -131,8 +130,7 @@ src/
 ├── pages/            # Page components (routing entry points)
 │   └── example-page.tsx
 ├── providers/        # React context providers
-│   ├── app-provider.tsx
-│   └── modals-provider.tsx
+│   └── app-provider.tsx
 ├── router/           # Routing configuration
 │   ├── lazy-components.tsx
 │   └── router.tsx
@@ -178,14 +176,12 @@ This project follows a **snake_case** naming convention with **feature-based org
 - src/hooks/auth/use-auth.ts
 - src/hooks/common/use-fetch.ts
 - src/hooks/user/use-create-user.ts
-- src/components/modal/modal-wrapper.tsx
 - src/views/example-view/example-view.tsx
 - src/store/use-modal.store.ts
 - src/utils/format-date.ts
 
 ❌ Avoid:
 - src/hooks/useAuth.ts
-- src/components/Modal/ModalWrapper.tsx
 - src/views/HomeView/HomeView.tsx
 ```
 
