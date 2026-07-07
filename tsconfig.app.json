@@ -21,11 +21,9 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
-		"ignoreDeprecations": "6.0",
-		// Path
-		"baseUrl": "./src",
+		// Path aliases are resolved by Vite; TypeScript reads the same map here.
 		"paths": {
-			"@/*": ["*"]
+			"@/*": ["./src/*"]
 		}
 	},
 	"include": ["src"]
