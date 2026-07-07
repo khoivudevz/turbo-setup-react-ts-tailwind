@@ -21,10 +21,9 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
-		// Path aliases are resolved by Vite; TypeScript reads the same map here.
 		"paths": {
-			"@/*": ["./src/*"]
-		}
+			"@/*": ["./src/*"],
+		},
 	},
-	"include": ["src"]
+	"include": ["src"],
 }
